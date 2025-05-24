@@ -1,683 +1,971 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Trilha Notion Produtiv.io - Do Básico ao Avançado</title><style>
-/* cspell:disable-file */
-/* webkit printing magic: print all background colors */
-html {
-	-webkit-print-color-adjust: exact;
-}
-* {
-	box-sizing: border-box;
-	-webkit-print-color-adjust: exact;
-}
-
-html,
-body {
-	margin: 0;
-	padding: 0;
-}
-@media only screen {
-	body {
-		margin: 2em auto;
-		max-width: 900px;
-		color: rgb(55, 53, 47);
-	}
-}
-
-body {
-	line-height: 1.5;
-	white-space: pre-wrap;
-}
-
-a,
-a.visited {
-	color: inherit;
-	text-decoration: underline;
-}
-
-.pdf-relative-link-path {
-	font-size: 80%;
-	color: #444;
-}
-
-h1,
-h2,
-h3 {
-	letter-spacing: -0.01em;
-	line-height: 1.2;
-	font-weight: 600;
-	margin-bottom: 0;
-}
-
-.page-title {
-	font-size: 2.5rem;
-	font-weight: 700;
-	margin-top: 0;
-	margin-bottom: 0.75em;
-}
-
-h1 {
-	font-size: 1.875rem;
-	margin-top: 1.875rem;
-}
-
-h2 {
-	font-size: 1.5rem;
-	margin-top: 1.5rem;
-}
-
-h3 {
-	font-size: 1.25rem;
-	margin-top: 1.25rem;
-}
-
-.source {
-	border: 1px solid #ddd;
-	border-radius: 3px;
-	padding: 1.5em;
-	word-break: break-all;
-}
-
-.callout {
-	border-radius: 3px;
-	padding: 1rem;
-}
-
-figure {
-	margin: 1.25em 0;
-	page-break-inside: avoid;
-}
-
-figcaption {
-	opacity: 0.5;
-	font-size: 85%;
-	margin-top: 0.5em;
-}
-
-mark {
-	background-color: transparent;
-}
-
-.indented {
-	padding-left: 1.5em;
-}
-
-hr {
-	background: transparent;
-	display: block;
-	width: 100%;
-	height: 1px;
-	visibility: visible;
-	border: none;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
-}
-
-img {
-	max-width: 100%;
-}
-
-@media only print {
-	img {
-		max-height: 100vh;
-		object-fit: contain;
-	}
-}
-
-@page {
-	margin: 1in;
-}
-
-.collection-content {
-	font-size: 0.875rem;
-}
-
-.column-list {
-	display: flex;
-	justify-content: space-between;
-}
-
-.column {
-	padding: 0 1em;
-}
-
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
-}
-
-.table_of_contents-item {
-	display: block;
-	font-size: 0.875rem;
-	line-height: 1.3;
-	padding: 0.125rem;
-}
-
-.table_of_contents-indent-1 {
-	margin-left: 1.5rem;
-}
-
-.table_of_contents-indent-2 {
-	margin-left: 3rem;
-}
-
-.table_of_contents-indent-3 {
-	margin-left: 4.5rem;
-}
-
-.table_of_contents-link {
-	text-decoration: none;
-	opacity: 0.7;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
-}
-
-table,
-th,
-td {
-	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
-}
-
-table {
-	border-left: none;
-	border-right: none;
-}
-
-th,
-td {
-	font-weight: normal;
-	padding: 0.25em 0.5em;
-	line-height: 1.5;
-	min-height: 1.5em;
-	text-align: left;
-}
-
-th {
-	color: rgba(55, 53, 47, 0.6);
-}
-
-ol,
-ul {
-	margin: 0;
-	margin-block-start: 0.6em;
-	margin-block-end: 0.6em;
-}
-
-li > ol:first-child,
-li > ul:first-child {
-	margin-block-start: 0.6em;
-}
-
-ul > li {
-	list-style: disc;
-}
-
-ul.to-do-list {
-	padding-inline-start: 0;
-}
-
-ul.to-do-list > li {
-	list-style: none;
-}
-
-.to-do-children-checked {
-	text-decoration: line-through;
-	opacity: 0.375;
-}
-
-ul.toggle > li {
-	list-style: none;
-}
-
-ul {
-	padding-inline-start: 1.7em;
-}
-
-ul > li {
-	padding-left: 0.1em;
-}
-
-ol {
-	padding-inline-start: 1.6em;
-}
-
-ol > li {
-	padding-left: 0.2em;
-}
-
-.mono ol {
-	padding-inline-start: 2em;
-}
-
-.mono ol > li {
-	text-indent: -0.4em;
-}
-
-.toggle {
-	padding-inline-start: 0em;
-	list-style-type: none;
-}
-
-/* Indent toggle children */
-.toggle > li > details {
-	padding-left: 1.7em;
-}
-
-.toggle > li > details > summary {
-	margin-left: -1.1em;
-}
-
-.selected-value {
-	display: inline-block;
-	padding: 0 0.5em;
-	background: rgba(206, 205, 202, 0.5);
-	border-radius: 3px;
-	margin-right: 0.5em;
-	margin-top: 0.3em;
-	margin-bottom: 0.3em;
-	white-space: nowrap;
-}
-
-.collection-title {
-	display: inline-block;
-	margin-right: 1em;
-}
-
-.page-description {
-	margin-bottom: 2em;
-}
-
-.simple-table {
-	margin-top: 1em;
-	font-size: 0.875rem;
-	empty-cells: show;
-}
-.simple-table td {
-	height: 29px;
-	min-width: 120px;
-}
-
-.simple-table th {
-	height: 29px;
-	min-width: 120px;
-}
-
-.simple-table-header-color {
-	background: rgb(247, 246, 243);
-	color: black;
-}
-.simple-table-header {
-	font-weight: 500;
-}
-
-time {
-	opacity: 0.5;
-}
-
-.icon {
-	display: inline-block;
-	max-width: 1.2em;
-	max-height: 1.2em;
-	text-decoration: none;
-	vertical-align: text-bottom;
-	margin-right: 0.5em;
-}
-
-img.icon {
-	border-radius: 3px;
-}
-
-.user-icon {
-	width: 1.5em;
-	height: 1.5em;
-	border-radius: 100%;
-	margin-right: 0.5rem;
-}
-
-.user-icon-inner {
-	font-size: 0.8em;
-}
-
-.text-icon {
-	border: 1px solid #000;
-	text-align: center;
-}
-
-.page-cover-image {
-	display: block;
-	object-fit: cover;
-	width: 100%;
-	max-height: 30vh;
-}
-
-.page-header-icon {
-	font-size: 3rem;
-	margin-bottom: 1rem;
-}
-
-.page-header-icon-with-cover {
-	margin-top: -0.72em;
-	margin-left: 0.07em;
-}
-
-.page-header-icon img {
-	border-radius: 3px;
-}
-
-.link-to-page {
-	margin: 1em 0;
-	padding: 0;
-	border: none;
-	font-weight: 500;
-}
-
-p > .user {
-	opacity: 0.5;
-}
-
-td > .user,
-td > time {
-	white-space: nowrap;
-}
-
-input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
-	vertical-align: middle;
-}
-
-p {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-}
-
-.image {
-	border: none;
-	margin: 1.5em 0;
-	padding: 0;
-	border-radius: 0;
-	text-align: center;
-}
-
-.code,
-code {
-	background: rgba(135, 131, 120, 0.15);
-	border-radius: 3px;
-	padding: 0.2em 0.4em;
-	border-radius: 3px;
-	font-size: 85%;
-	tab-size: 2;
-}
-
-code {
-	color: #eb5757;
-}
-
-.code {
-	padding: 1.5em 1em;
-}
-
-.code-wrap {
-	white-space: pre-wrap;
-	word-break: break-all;
-}
-
-.code > code {
-	background: none;
-	padding: 0;
-	font-size: 100%;
-	color: inherit;
-}
-
-blockquote {
-	font-size: 1.25em;
-	margin: 1em 0;
-	padding-left: 1em;
-	border-left: 3px solid rgb(55, 53, 47);
-}
-
-.bookmark {
-	text-decoration: none;
-	max-height: 8em;
-	padding: 0;
-	display: flex;
-	width: 100%;
-	align-items: stretch;
-}
-
-.bookmark-title {
-	font-size: 0.85em;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	height: 1.75em;
-	white-space: nowrap;
-}
-
-.bookmark-text {
-	display: flex;
-	flex-direction: column;
-}
-
-.bookmark-info {
-	flex: 4 1 180px;
-	padding: 12px 14px 14px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-.bookmark-image {
-	width: 33%;
-	flex: 1 1 180px;
-	display: block;
-	position: relative;
-	object-fit: cover;
-	border-radius: 1px;
-}
-
-.bookmark-description {
-	color: rgba(55, 53, 47, 0.6);
-	font-size: 0.75em;
-	overflow: hidden;
-	max-height: 4.5em;
-	word-break: break-word;
-}
-
-.bookmark-href {
-	font-size: 0.75em;
-	margin-top: 0.25em;
-}
-
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
-.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
-.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
-.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
-.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
-.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
-.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
-.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
-.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.highlight-default {
-	color: rgba(50, 48, 44, 1);
-}
-.highlight-gray {
-	color: rgba(115, 114, 110, 1);
-	fill: rgba(115, 114, 110, 1);
-}
-.highlight-brown {
-	color: rgba(159, 107, 83, 1);
-	fill: rgba(159, 107, 83, 1);
-}
-.highlight-orange {
-	color: rgba(217, 115, 13, 1);
-	fill: rgba(217, 115, 13, 1);
-}
-.highlight-yellow {
-	color: rgba(203, 145, 47, 1);
-	fill: rgba(203, 145, 47, 1);
-}
-.highlight-teal {
-	color: rgba(68, 131, 97, 1);
-	fill: rgba(68, 131, 97, 1);
-}
-.highlight-blue {
-	color: rgba(51, 126, 169, 1);
-	fill: rgba(51, 126, 169, 1);
-}
-.highlight-purple {
-	color: rgba(144, 101, 176, 1);
-	fill: rgba(144, 101, 176, 1);
-}
-.highlight-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(193, 76, 138, 1);
-}
-.highlight-red {
-	color: rgba(205, 60, 58, 1);
-	fill: rgba(205, 60, 58, 1);
-}
-.highlight-default_background {
-	color: rgba(50, 48, 44, 1);
-}
-.highlight-gray_background {
-	background: rgba(248, 248, 247, 1);
-}
-.highlight-brown_background {
-	background: rgba(244, 238, 238, 1);
-}
-.highlight-orange_background {
-	background: rgba(251, 236, 221, 1);
-}
-.highlight-yellow_background {
-	background: rgba(251, 243, 219, 1);
-}
-.highlight-teal_background {
-	background: rgba(237, 243, 236, 1);
-}
-.highlight-blue_background {
-	background: rgba(231, 243, 248, 1);
-}
-.highlight-purple_background {
-	background: rgba(248, 243, 252, 1);
-}
-.highlight-pink_background {
-	background: rgba(252, 241, 246, 1);
-}
-.highlight-red_background {
-	background: rgba(253, 235, 236, 1);
-}
-.block-color-default {
-	color: inherit;
-	fill: inherit;
-}
-.block-color-gray {
-	color: rgba(115, 114, 110, 1);
-	fill: rgba(115, 114, 110, 1);
-}
-.block-color-brown {
-	color: rgba(159, 107, 83, 1);
-	fill: rgba(159, 107, 83, 1);
-}
-.block-color-orange {
-	color: rgba(217, 115, 13, 1);
-	fill: rgba(217, 115, 13, 1);
-}
-.block-color-yellow {
-	color: rgba(203, 145, 47, 1);
-	fill: rgba(203, 145, 47, 1);
-}
-.block-color-teal {
-	color: rgba(68, 131, 97, 1);
-	fill: rgba(68, 131, 97, 1);
-}
-.block-color-blue {
-	color: rgba(51, 126, 169, 1);
-	fill: rgba(51, 126, 169, 1);
-}
-.block-color-purple {
-	color: rgba(144, 101, 176, 1);
-	fill: rgba(144, 101, 176, 1);
-}
-.block-color-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(193, 76, 138, 1);
-}
-.block-color-red {
-	color: rgba(205, 60, 58, 1);
-	fill: rgba(205, 60, 58, 1);
-}
-.block-color-default_background {
-	color: inherit;
-	fill: inherit;
-}
-.block-color-gray_background {
-	background: rgba(248, 248, 247, 1);
-}
-.block-color-brown_background {
-	background: rgba(244, 238, 238, 1);
-}
-.block-color-orange_background {
-	background: rgba(251, 236, 221, 1);
-}
-.block-color-yellow_background {
-	background: rgba(251, 243, 219, 1);
-}
-.block-color-teal_background {
-	background: rgba(237, 243, 236, 1);
-}
-.block-color-blue_background {
-	background: rgba(231, 243, 248, 1);
-}
-.block-color-purple_background {
-	background: rgba(248, 243, 252, 1);
-}
-.block-color-pink_background {
-	background: rgba(252, 241, 246, 1);
-}
-.block-color-red_background {
-	background: rgba(253, 235, 236, 1);
-}
-.select-value-color-uiBlue { background-color: undefined; }
-.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
-.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
-.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
-.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
-.select-value-color-translucentGray { background-color: undefined; }
-.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
-.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
-.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
-.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
-.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
-.select-value-color-pageGlass { background-color: undefined; }
-.select-value-color-washGlass { background-color: undefined; }
-
-.checkbox {
-	display: inline-flex;
-	vertical-align: text-bottom;
-	width: 16;
-	height: 16;
-	background-size: 16px;
-	margin-left: 2px;
-	margin-right: 5px;
-}
-
-.checkbox-on {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-
-.checkbox-off {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-	
-</style></head><body><article id="1fd602cf-e84c-806b-be84-fe681a3675f9" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/gradients_3.png" style="object-position:center 60%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">💻</span></div><h1 class="page-title">Trilha Notion Produtiv.io - Do Básico ao Avançado</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="1fd602cf-e84c-8028-861f-cc5c1e1d6337"><div style="width:100%">📚 Esta trilha vai te levar do zero ao domínio das ferramentas digitais mais poderosas da atualidade: Notion e IA</div></figure><h2 id="1fd602cf-e84c-8082-b0d6-ff208340a31c" class="">🎯 Módulo 1: Fundamentos e Contexto</h2><ul id="1fd602cf-e84c-802b-8f2d-eb016f903f3b" class="toggle"><li><details open=""><summary>Por que Aprender Agora?</summary><ul id="1fd602cf-e84c-8075-9c55-df4d177d9c05" class="bulleted-list"><li style="list-style-type:disc">🌍 O mundo digital está em transformação acelerada</li></ul><ul id="1fd602cf-e84c-80ad-b889-df05e2798749" class="bulleted-list"><li style="list-style-type:disc">📈 94% das empresas exigem domínio de ferramentas digitais</li></ul><ul id="1fd602cf-e84c-8090-b84c-dcf5511ff4eb" class="bulleted-list"><li style="list-style-type:disc">💡 Notion + IA = Combo perfeito para produtividade</li></ul></details></li></ul><h2 id="1fd602cf-e84c-8046-804e-c9b334ce200c" class="">🔥 Módulo 2: Dominando o Notion</h2><ul id="1fd602cf-e84c-8018-b469-dea351828190" class="toggle"><li><details open=""><summary>Primeiros Passos</summary><ul id="1fd602cf-e84c-8018-9173-f0d20db04577" class="bulleted-list"><li style="list-style-type:disc">📝 Blocks básicos e formatação</li></ul><ul id="1fd602cf-e84c-8087-8e0f-d7718391298b" class="bulleted-list"><li style="list-style-type:disc">📋 Templates e duplicação</li></ul><ul id="1fd602cf-e84c-8047-8ee0-e0b5e5450642" class="bulleted-list"><li style="list-style-type:disc">🔄 Sincronização e colaboração</li></ul></details></li></ul><h2 id="1fd602cf-e84c-802a-996e-f30082f69ebc" class="">⚡ Módulo 3: Atalhos Essenciais do Windows</h2><ul id="1fd602cf-e84c-8080-a41d-e55807717af5" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Win + D: Mostrar/ocultar área de trabalho</span><div class="indented"></div></li></ul><ul id="1fd602cf-e84c-80f5-81a3-c91cfb874862" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Alt + Tab: Alternar entre janelas</span><div class="indented"></div></li></ul><ul id="1fd602cf-e84c-8035-a0f1-de007a83a665" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Win + E: Abrir explorador de arquivos</span><div class="indented"></div></li></ul><ul id="1fd602cf-e84c-804f-9225-fe5f164074f4" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Win + L: Bloquear computador</span><div class="indented"></div></li></ul><ul id="1fd602cf-e84c-80ed-9d6e-efa2bfedd435" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Win + Ctrl + D: Nova área de trabalho</span><div class="indented"></div></li></ul><h2 id="1fd602cf-e84c-80c4-97fb-db8a7c666bee" class="">🤖 Módulo 4: Prompts de IA para Produtividade</h2><ul id="1fd602cf-e84c-8085-9f62-d6d2845fc674" class="toggle"><li><details open=""><summary>Templates de Prompts</summary><figure class="block-color-purple_background callout" style="white-space:pre-wrap;display:flex" id="1fd602cf-e84c-8069-aff7-e3fcf8e561af"><div style="width:100%">✨ Resumo de Textos:<br/>&quot;Resuma este texto em 5 tópicos principais, destacando as informações mais relevantes.&quot;<br/></div></figure><figure class="block-color-teal_background callout" style="white-space:pre-wrap;display:flex" id="1fd602cf-e84c-800d-9fd4-ea916547affd"><div style="width:100%">📋 Geração de Checklists:<br/>&quot;Crie um checklist detalhado para [objetivo], considerando [contexto específico].&quot;<br/></div></figure><figure class="block-color-orange_background callout" style="white-space:pre-wrap;display:flex" id="1fd602cf-e84c-80b7-97c5-e55ad684d9e6"><div style="width:100%">💡 Brainstorming:<br/>&quot;Gere 10 ideias criativas para [desafio], focando em soluções práticas e inovadoras.&quot;<br/></div></figure></details></li></ul><h2 id="1fd602cf-e84c-8010-b594-c0f121fa7286" class="">📈 Módulo 5: Prática e Resultados</h2><ul id="1fd602cf-e84c-80cd-9385-daa014730ded" class="toggle"><li><details open=""><summary>Desafios Práticos</summary><ul id="1fd602cf-e84c-8066-8877-e1e4d1175765" class="bulleted-list"><li style="list-style-type:disc">🎯 Criar um dashboard pessoal no Notion</li></ul><ul id="1fd602cf-e84c-80a7-9d3a-c4901d0bf38a" class="bulleted-list"><li style="list-style-type:disc">⚡ Usar 5 atalhos do Windows diariamente</li></ul><ul id="1fd602cf-e84c-80d6-8115-cbb244fb1651" class="bulleted-list"><li style="list-style-type:disc">🤖 Gerar 3 prompts personalizados para seu trabalho</li></ul></details></li></ul><h2 id="1fd602cf-e84c-802f-8564-f1b4cebe1f1b" class="">🚀 Próximos Passos</h2><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="1fd602cf-e84c-80fb-850c-cea380e4ce8f"><div style="width:100%"><p id="1fd602cf-e84c-80e7-804e-d857e3708046" class="">✨ Quer fazer parte dessa revolução?</p><p id="1fd602cf-e84c-80b2-b96d-f4d8c65a2fb0" class="">💎 Seja um investidor fundador do <a href="http://Produtiv.io">Produtiv.io</a></p><p id="1fd602cf-e84c-8008-964e-e2b673dc8a36" class="">🔑 Acesso antecipado a todas as funcionalidades</p></div></figure><table id="1fd602cf-e84c-80b8-8041-d17c75e48880" class="simple-table"><tbody><tr id="1fd602cf-e84c-80a4-bd01-c11359c4542a"><td id="bi:e" class=""><strong>Benefício</strong></td><td id="]BE[" class=""><strong>Investidor Fundador</strong></td></tr><tr id="1fd602cf-e84c-803f-9e48-d91eec5e090e"><td id="bi:e" class="">Acesso Vitalício</td><td id="]BE[" class="">✅</td></tr><tr id="1fd602cf-e84c-8004-9afe-f4c6adf57a7e"><td id="bi:e" class="">Grupo VIP</td><td id="]BE[" class="">✅</td></tr><tr id="1fd602cf-e84c-80bb-88d1-fd0d8f28e740"><td id="bi:e" class="">Mentoria Exclusiva</td><td id="]BE[" class="">✅</td></tr><tr id="1fd602cf-e84c-80d8-823f-e7aa46ac55b8"><td id="bi:e" class="">Participação nos Lucros</td><td id="]BE[" class="">✅</td></tr></tbody></table><h2 id="1fd602cf-e84c-80a9-9e15-c30c80d7f2f2" class="">✅ Checklist de Progresso</h2><ul id="1fd602cf-e84c-8043-8cd1-c9245c1d963d" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Completei o Módulo 1: Fundamentos</span><div class="indented"></div></li></ul><ul id="1fd602cf-e84c-806f-9a91-ee8d47075afa" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Dominei os conceitos do Notion</span><div class="indented"></div></li></ul><ul id="1fd602cf-e84c-80d3-b72d-d680e47b191b" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Memorizei os atalhos do Windows</span><div class="indented"></div></li></ul><ul id="1fd602cf-e84c-8064-8489-ce00bfe73dc3" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Criei meus próprios prompts de IA</span><div class="indented"></div></li></ul><ul id="1fd602cf-e84c-8091-a45e-d9e4bab3116e" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">Implementei as práticas no dia a dia</span><div class="indented"></div></li></ul><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="1fd602cf-e84c-807b-911b-dc03fc06cd71"><div style="width:100%">🎓 Ao completar esta trilha, você estará preparado para:<ul id="1fd602cf-e84c-8079-856f-f99477e7e748" class="bulleted-list"><li style="list-style-type:disc">✨ Dominar ferramentas digitais essenciais</li></ul><ul id="1fd602cf-e84c-80e3-ba3e-cca304f8d5f2" class="bulleted-list"><li style="list-style-type:disc">⚡ Aumentar sua produtividade significativamente</li></ul><ul id="1fd602cf-e84c-804e-a89a-f308c6c77f79" class="bulleted-list"><li style="list-style-type:disc">🚀 Aproveitar oportunidades de investimento únicas</li></ul></div></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trilha Notion Produtiv.io - Do Básico ao Avançado</title>
+    <style>
+        /* Reset e Variáveis */
+        :root {
+            --primary: #2563eb;
+            --secondary: #7c3aed;
+            --accent: #f59e0b;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --success: #10b981;
+            --danger: #ef4444;
+            --gray: #64748b;
+            --bg-gradient: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f1f5f9;
+            padding: 0;
+            margin: 0;
+        }
+        
+        /* Layout */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            min-height: 100vh;
+        }
+        
+        /* Cabeçalho */
+        .header {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+        }
+        
+        .header-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 2;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 3;
+            padding: 2rem;
+            width: 100%;
+            color: white;
+        }
+        
+        .header-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+        
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .page-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+        
+        /* Conteúdo */
+        .content {
+            padding: 2rem;
+        }
+        
+        /* Seções */
+        .section {
+            margin-bottom: 3rem;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .section-header {
+            padding: 1.5rem;
+            background: var(--bg-gradient);
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .section-body {
+            padding: 1.5rem;
+        }
+        
+        /* Callouts */
+        .callout {
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .callout::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 5px;
+            height: 100%;
+            background: currentColor;
+            opacity: 0.3;
+        }
+        
+        .callout-blue {
+            background-color: #e0e7ff;
+            color: #1e40af;
+        }
+        
+        .callout-purple {
+            background-color: #f3e8ff;
+            color: #6b21a8;
+        }
+        
+        .callout-teal {
+            background-color: #ccfbf1;
+            color: #0d9488;
+        }
+        
+        .callout-orange {
+            background-color: #ffedd5;
+            color: #9a3412;
+        }
+        
+        .callout-yellow {
+            background-color: #fef9c3;
+            color: #854d0e;
+        }
+        
+        /* Listas */
+        ul, ol {
+            padding-left: 2rem;
+            margin: 1rem 0;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Toggle Lists */
+        .toggle-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .toggle-item {
+            margin-bottom: 0.5rem;
+        }
+        
+        .toggle-summary {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        
+        .toggle-summary:hover {
+            background: #f1f5f9;
+        }
+        
+        .toggle-summary::before {
+            content: '+';
+            margin-right: 1rem;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+        
+        .toggle-item[open] .toggle-summary::before {
+            content: '-';
+        }
+        
+        .toggle-content {
+            padding: 1rem 1rem 1rem 2.5rem;
+        }
+        
+        /* To-do Lists */
+        .todo-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .todo-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            transition: all 0.2s;
+        }
+        
+        .todo-item:hover {
+            background: #f8fafc;
+        }
+        
+        .todo-checkbox {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--gray);
+            border-radius: 4px;
+            margin-right: 1rem;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.2s;
+        }
+        
+        .todo-checkbox:checked {
+            background-color: var(--success);
+            border-color: var(--success);
+        }
+        
+        .todo-checkbox:checked::after {
+            content: '✓';
+            position: absolute;
+            color: white;
+            font-size: 14px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .todo-text {
+            flex: 1;
+        }
+        
+        .todo-checkbox:checked + .todo-text {
+            text-decoration: line-through;
+            color: var(--gray);
+        }
+        
+        /* Tabelas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        th {
+            background-color: #f8fafc;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        tr:hover {
+            background-color: #f8fafc;
+        }
+        
+        /* Progresso */
+        .progress-container {
+            margin: 2rem 0;
+        }
+        
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background-color: #e2e8f0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: var(--bg-gradient);
+            border-radius: 5px;
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+        
+        /* Botões */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: var(--bg-gradient);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+        
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            animation: modalFadeIn 0.3s;
+        }
+        
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .header {
+                height: 250px;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 1.5rem;
+            }
+            
+            .section-header {
+                padding: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.25rem;
+            }
+        }
+        
+        /* Animações */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        /* Ícones */
+        .icon {
+            font-size: 1.2em;
+            vertical-align: middle;
+            margin-right: 0.3em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Cabeçalho -->
+        <header class="header">
+            <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Produtividade Digital" class="header-image">
+            <div class="header-overlay"></div>
+            <div class="header-content">
+                <div class="header-icon">💻</div>
+                <h1 class="page-title">Trilha Notion Produtiv.io</h1>
+                <p class="page-subtitle">Do Básico ao Avançado - Domine as ferramentas do futuro</p>
+            </div>
+        </header>
+        
+        <!-- Conteúdo Principal -->
+        <main class="content">
+            <!-- Callout de Introdução -->
+            <div class="callout callout-blue fade-in">
+                <p><strong>📚 Esta trilha vai te levar do zero ao domínio das ferramentas digitais mais poderosas da atualidade:</strong> Notion, IA e técnicas avançadas de produtividade que vão transformar sua forma de trabalhar e organizar sua vida.</p>
+            </div>
+            
+            <!-- Progresso -->
+            <div class="progress-container">
+                <div class="progress-header">
+                    <span>Seu progresso:</span>
+                    <span id="progress-percentage">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+            </div>
+            
+            <!-- Módulo 1 -->
+            <section class="section fade-in">
+                <div class="section-header">
+                    <span class="section-icon">🎯</span>
+                    <h2 class="section-title">Módulo 1: Fundamentos e Contexto</h2>
+                </div>
+                <div class="section-body">
+                    <ul class="toggle-list">
+                        <li class="toggle-item">
+                            <details open>
+                                <summary class="toggle-summary">Por que Aprender Agora?</summary>
+                                <div class="toggle-content">
+                                    <ul>
+                                        <li>🌍 O mundo digital está em transformação acelerada</li>
+                                        <li>📈 94% das empresas exigem domínio de ferramentas digitais</li>
+                                        <li>💡 Notion + IA = Combo perfeito para produtividade</li>
+                                        <li>🚀 Vantagem competitiva no mercado de trabalho</li>
+                                        <li>⏱️ Economia de tempo e redução de estresse</li>
+                                    </ul>
+                                    <div class="callout callout-purple" style="margin-top: 1rem;">
+                                        <p><strong>Dica:</strong> Comece identificando uma área da sua vida que precisa de mais organização para aplicar o que aprenderá nesta trilha.</p>
+                                    </div>
+                                </div>
+                            </details>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Módulo 2 -->
+            <section class="section fade-in">
+                <div class="section-header">
+                    <span class="section-icon">🔥</span>
+                    <h2 class="section-title">Módulo 2: Dominando o Notion</h2>
+                </div>
+                <div class="section-body">
+                    <ul class="toggle-list">
+                        <li class="toggle-item">
+                            <details>
+                                <summary class="toggle-summary">Primeiros Passos</summary>
+                                <div class="toggle-content">
+                                    <ul>
+                                        <li>📝 Blocks básicos e formatação</li>
+                                        <li>📋 Templates e duplicação</li>
+                                        <li>🔄 Sincronização e colaboração</li>
+                                        <li>🗂️ Organização de páginas e subpáginas</li>
+                                        <li>🔍 Busca e navegação eficiente</li>
+                                    </ul>
+                                </div>
+                            </details>
+                        </li>
+                        <li class="toggle-item">
+                            <details>
+                                <summary class="toggle-summary">Recursos Intermediários</summary>
+                                <div class="toggle-content">
+                                    <ul>
+                                        <li>📊 Bancos de dados e visualizações</li>
+                                        <li>🔗 Relações e rollups</li>
+                                        <li>🧩 Fórmulas básicas</li>
+                                        <li>🎨 Personalização estética</li>
+                                    </ul>
+                                </div>
+                            </details>
+                        </li>
+                        <li class="toggle-item">
+                            <details>
+                                <summary class="toggle-summary">Técnicas Avançadas</summary>
+                                <div class="toggle-content">
+                                    <ul>
+                                        <li>⚡ Automações com API</li>
+                                        <li>🤖 Integração com ferramentas de IA</li>
+                                        <li>🔄 Fluxos de trabalho complexos</li>
+                                        <li>📱 Uso móvel eficiente</li>
+                                    </ul>
+                                </div>
+                            </details>
+                        </li>
+                    </ul>
+                    
+                    <div class="callout callout-teal">
+                        <p><strong>Template Grátis:</strong> <a href="#" style="color: inherit; text-decoration: underline;">Baixe nosso template de Dashboard Pessoal</a> para começar imediatamente a organizar sua vida com o Notion.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Módulo 3 -->
+            <section class="section fade-in">
+                <div class="section-header">
+                    <span class="section-icon">⚡</span>
+                    <h2 class="section-title">Módulo 3: Atalhos Essenciais</h2>
+                </div>
+                <div class="section-body">
+                    <p>Domine esses atalhos para navegar entre aplicações com velocidade:</p>
+                    
+                    <ul class="todo-list">
+                        <li class="todo-item">
+                            <input type="checkbox" class="todo-checkbox" id="shortcut1">
+                            <label for="shortcut1" class="todo-text">Win + D: Mostrar/ocultar área de trabalho</label>
+                        </li>
+                        <li class="todo-item">
+                            <input type="checkbox" class="todo-checkbox" id="shortcut2">
+                            <label for="shortcut2" class="todo-text">Alt + Tab: Alternar entre janelas</label>
+                        </li>
+                        <li class="todo-item">
+                            <input type="checkbox" class="todo-checkbox" id="shortcut3">
+                            <label for="shortcut3" class="todo-text">Win + E: Abrir explorador de arquivos</label>
+                        </li>
+                        <li class="todo-item">
+                            <input type="checkbox" class="todo-checkbox" id="shortcut4">
+                            <label for="shortcut4" class="todo-text">Win + L: Bloquear computador</label>
+                        </li>
+                        <li class="todo-item">
+                            <input type="checkbox" class="todo-checkbox" id="shortcut5">
+                            <label for="shortcut5" class="todo-text">Win + Ctrl + D: Nova área de trabalho virtual</label>
+                        </li>
+                        <li class="todo-item">
+                            <input type="checkbox" class="todo-checkbox" id="shortcut6">
+                            <label for="shortcut6" class="todo-text">Win + V: Acessar histórico da área de transferência</label>
+                        </li>
+                        <li class="todo-item">
+                            <input type="checkbox" class="todo-checkbox" id="shortcut7">
+                            <label for="shortcut7" class="todo-text">Win + Shift + S: Captura de tela personalizada</label>
+                        </li>
+                    </ul>
+                    
+                    <div class="callout callout-orange">
+                        <p><strong>Exercício:</strong> Escolha 3 atalhos que você não conhecia e tente usá-los 5 vezes hoje mesmo para memorizá-los.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Módulo 4 -->
+            <section class="section fade-in">
+                <div class="section-header">
+                    <span class="section-icon">🤖</span>
+                    <h2 class="section-title">Módulo 4: Prompts de IA para Produtividade</h2>
+                </div>
+                <div class="section-body">
+                    <ul class="toggle-list">
+                        <li class="toggle-item">
+                            <details>
+                                <summary class="toggle-summary">Templates de Prompts</summary>
+                                <div class="toggle-content">
+                                    <div class="callout callout-purple">
+                                        <p><strong>✨ Resumo de Textos:</strong><br>
+                                        "Resuma este texto em [número] tópicos principais, destacando as informações mais relevantes para [seu objetivo específico]. Inclua exemplos práticos quando aplicável."</p>
+                                    </div>
+                                    
+                                    <div class="callout callout-teal">
+                                        <p><strong>📋 Geração de Checklists:</strong><br>
+                                        "Crie um checklist detalhado para [objetivo], considerando [contexto específico]. Organize em categorias lógicas e inclua estimativas de tempo para cada tarefa."</p>
+                                    </div>
+                                    
+                                    <div class="callout callout-orange">
+                                        <p><strong>💡 Brainstorming:</strong><br>
+                                        "Gere [número] ideias criativas para [desafio], focando em soluções [critério 1] e [critério 2]. Para cada ideia, liste prós, contras e requisitos de implementação."</p>
+                                    </div>
+                                    
+                                    <div class="callout callout-blue">
+                                        <p><strong>📊 Análise de Dados:</strong><br>
+                                        "Analise estes dados sobre [tópico] e identifique os 3 insights mais relevantes para [objetivo]. Apresente em formato de bullet points com recomendações acionáveis."</p>
+                                    </div>
+                                </div>
+                            </details>
+                        </li>
+                    </ul>
+                    
+                    <button class="btn btn-primary" id="generate-prompt" style="margin-top: 1rem;">
+                        ✨ Gerar Prompt Personalizado
+                    </button>
+                </div>
+            </section>
+            
+            <!-- Módulo 5 -->
+            <section class="section fade-in">
+                <div class="section-header">
+                    <span class="section-icon">📈</span>
+                    <h2 class="section-title">Módulo 5: Prática e Resultados</h2>
+                </div>
+                <div class="section-body">
+                    <ul class="toggle-list">
+                        <li class="toggle-item">
+                            <details>
+                                <summary class="toggle-summary">Desafios Práticos</summary>
+                                <div class="toggle-content">
+                                    <ul class="todo-list">
+                                        <li class="todo-item">
+                                            <input type="checkbox" class="todo-checkbox" id="challenge1">
+                                            <label for="challenge1" class="todo-text">🎯 Criar um dashboard pessoal no Notion com pelo menos 3 bancos de dados interligados</label>
+                                        </li>
+                                        <li class="todo-item">
+                                            <input type="checkbox" class="todo-checkbox" id="challenge2">
+                                            <label for="challenge2" class="todo-text">⚡ Usar 5 atalhos do Windows diariamente por uma semana</label>
+                                        </li>
+                                        <li class="todo-item">
+                                            <input type="checkbox" class="todo-checkbox" id="challenge3">
+                                            <label for="challenge3" class="todo-text">🤖 Gerar 3 prompts personalizados para seu trabalho e avaliar os resultados</label>
+                                        </li>
+                                        <li class="todo-item">
+                                            <input type="checkbox" class="todo-checkbox" id="challenge4">
+                                            <label for="challenge4" class="todo-text">📊 Implementar um sistema de acompanhamento de métricas pessoais</label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </details>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Oportunidade -->
+            <section class="section fade-in" style="border: 2px solid var(--accent);">
+                <div class="section-header" style="background: var(--accent);">
+                    <span class="section-icon">🚀</span>
+                    <h2 class="section-title">Oportunidade Exclusiva</h2>
+                </div>
+                <div class="section-body">
+                    <div class="callout callout-yellow">
+                        <p><strong>✨ Quer fazer parte dessa revolução?</strong></p>
+                        <p>💎 Seja um investidor fundador do <strong>Produtiv.io</strong></p>
+                        <p>🔑 Acesso antecipado a todas as funcionalidades</p>
+                        <p>🤝 Participação nos lucros da plataforma</p>
+                    </div>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Benefício</th>
+                                <th>Investidor Fundador</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Acesso Vitalício</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td>Grupo VIP</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td>Mentoria Exclusiva</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td>Participação nos Lucros</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td>Descontos em Cursos</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td>Acesso Beta</td>
+                                <td>✅</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <button class="btn btn-primary btn-block" id="investor-btn" style="margin-top: 1.5rem;">
+                        Quero ser um Investidor Fundador
+                    </button>
+                </div>
+            </section>
+            
+            <!-- Checklist de Progresso -->
+            <section class="section fade-in">
+                <div class="section-header">
+                    <span class="section-icon">✅</span>
+                    <h2 class="section-title">Checklist de Progresso</h2>
+                </div>
+                <div class="section-body">
+                    <ul class="todo-list">
+                        <li class="todo-item">
+                            <input type="checkbox" class="todo-checkbox" id="progress1">
+                            <label for="progress1" class="todo-text">Completei o Módulo 1: Fundamentos</label>
+                        </li>
+                        <li class="todo-item">
+                            <input type="checkbox" class="todo-checkbox" id="progress2">
+                            <label for="progress2" class="todo-text">Dominei os conceitos básicos do Notion</label>
+                        </li>
+                        <li class="todo-item">
+                            <input type="checkbox" class="todo-checkbox" id="progress3">
+                            <label for="progress3" class="todo-text">Memorizei os atalhos essenciais do Windows</label>
+                        </li>
+                        <li class="todo-item">
+                            <input type="checkbox" class="todo-checkbox" id="progress4">
+                            <label for="progress4" class="todo-text">Criei meus próprios prompts de IA</label>
+                        </li>
+                        <li class="todo-item">
+                            <input type="checkbox" class="todo-checkbox" id="progress5">
+                            <label for="progress5" class="todo-text">Implementei pelo menos 3 práticas no dia a dia</label>
+                        </li>
+                        <li class="todo-item">
+                            <input type="checkbox" class="todo-checkbox" id="progress6">
+                            <label for="progress6" class="todo-text">Concluí todos os desafios práticos</label>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Conclusão -->
+            <div class="callout callout-blue fade-in" style="margin-top: 3rem;">
+                <p><strong>🎓 Ao completar esta trilha, você estará preparado para:</strong></p>
+                <ul style="margin-top: 0.5rem;">
+                    <li>✨ Dominar ferramentas digitais essenciais para o futuro do trabalho</li>
+                    <li>⚡ Aumentar sua produtividade em pelo menos 30%</li>
+                    <li>🤖 Automatizar tarefas repetitivas com IA</li>
+                    <li>🚀 Aproveitar oportunidades de investimento únicas na era digital</li>
+                    <li>💼 Destaque-se no mercado de trabalho com habilidades valorizadas</li>
+                </ul>
+            </div>
+            
+            <div style="text-align: center; margin: 3rem 0;">
+                <button class="btn btn-primary" id="start-now-btn">
+                    Comece Agora Mesmo - É Grátis!
+                </button>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Modal de Investidor -->
+    <div class="modal" id="investor-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Seja um Investidor Fundador</h3>
+                <button class="modal-close" id="close-modal">&times;</button>
+            </div>
+            <form id="investor-form">
+                <div class="form-group">
+                    <label for="name" class="form-label">Nome Completo</label>
+                    <input type="text" id="name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="form-label">E-mail</label>
+                    <input type="email" id="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="investment" class="form-label">Nível de Investimento</label>
+                    <select id="investment" class="form-control" required>
+                        <option value="">Selecione...</option>
+                        <option value="basic">Básico - R$ 500</option>
+                        <option value="standard">Standard - R$ 1.500</option>
+                        <option value="premium">Premium - R$ 3.000</option>
+                        <option value="vip">VIP - R$ 5.000+</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message" class="form-label">Por que quer ser um investidor fundador?</label>
+                    <textarea id="message" class="form-control" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Enviar Candidatura</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Modal de Prompt -->
+    <div class="modal" id="prompt-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Prompt Personalizado</h3>
+                <button class="modal-close" id="close-prompt-modal">&times;</button>
+            </div>
+            <div class="form-group">
+                <label for="prompt-purpose" class="form-label">Qual o propósito do prompt?</label>
+                <select id="prompt-purpose" class="form-control">
+                    <option value="summary">Resumo de Conteúdo</option>
+                    <option value="ideas">Geração de Ideias</option>
+                    <option value="analysis">Análise de Dados</option>
+                    <option value="planning">Planejamento</option>
+                    <option value="writing">Redação</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="prompt-details" class="form-label">Detalhes específicos</label>
+                <textarea id="prompt-details" class="form-control" rows="4" placeholder="Descreva o contexto, objetivos específicos e qualquer requisito importante..."></textarea>
+            </div>
+            <button class="btn btn-primary" id="generate-custom-prompt">Gerar Prompt</button>
+            <div id="prompt-result" style="margin-top: 1.5rem; padding: 1rem; background: #f8fafc; border-radius: 8px; display: none;">
+                <h4 style="margin-bottom: 0.5rem;">Seu Prompt Personalizado:</h4>
+                <p id="custom-prompt-text"></p>
+                <button class="btn" style="margin-top: 1rem; background: #e2e8f0;" id="copy-prompt">Copiar Prompt</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Controle de Progresso
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.todo-checkbox');
+            const total = checkboxes.length;
+            let checked = 0;
+            
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) checked++;
+            });
+            
+            const percentage = Math.round((checked / total) * 100);
+            document.getElementById('progress-percentage').textContent = `${percentage}%`;
+            document.getElementById('progress-fill').style.width = `${percentage}%`;
+            
+            // Atualizar cor baseada no progresso
+            const progressFill = document.getElementById('progress-fill');
+            if (percentage < 30) {
+                progressFill.style.background = '#ef4444'; // Vermelho
+            } else if (percentage < 70) {
+                progressFill.style.background = '#f59e0b'; // Amarelo
+            } else {
+                progressFill.style.background = '#10b981'; // Verde
+            }
+        }
+        
+        // Adicionar event listeners a todos os checkboxes
+        document.querySelectorAll('.todo-checkbox').forEach(checkbox => {
+            checkbox.addEventListener('change', updateProgress);
+        });
+        
+        // Modal de Investidor
+        const investorBtn = document.getElementById('investor-btn');
+        const investorModal = document.getElementById('investor-modal');
+        const closeModal = document.getElementById('close-modal');
+        const investorForm = document.getElementById('investor-form');
+        
+        investorBtn.addEventListener('click', () => {
+            investorModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeModal.addEventListener('click', () => {
+            investorModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        investorForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Obrigado pelo seu interesse! Entraremos em contato em breve com mais detalhes.');
+            investorModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+       
